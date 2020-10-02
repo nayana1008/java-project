@@ -1,0 +1,56 @@
+<div style="text-align:center">
+    <h1> EMPLOYEE DETAILS</h1>
+  </div>
+  <div class="p">
+    <div>
+      <label>Employee Id</label><br>
+      <input type="text" (focusout)=getId($event)/>
+    </div>
+  <div>
+    <label>Employee Name</label><br>
+    <input type="text" (focusout)=getName($event)/>
+  </div>
+  <div>
+    <label>Age</label><br>
+    <input type="text" (focusout)=getAge($event)/>
+  </div>
+  <div>
+    <label>Gender</label><br>
+    <input type="text" (focusout)=getGender($event)/>
+  </div>
+  <div>
+    <label>Date of Join</label><br>
+    <input type="text" (focusout)=getDoj($event)/>
+  </div>
+  <div>
+    <label>Department</label><br>
+    <input type="text" (focusout)=getDepartment($event)/>
+  </div>
+  <div>
+    <label>Company</label><br>
+    <input type="text" (focusout)=getCompany($event)/>
+  </div>
+  </div>
+  <div >
+  <button class="p" (click)="addEmployee()">Add</button>
+  <button class="p" (click)="editEmployee()">Edit</button>
+  <button class="p" (click)="deleteEmployee()">Delete</button>
+  <button class="p" (click)="cancel()">Export</button>
+  
+  </div>
+  <div>
+  <ag-grid-angular
+      style="width: 800px; height: 155px; "
+      class="ag-theme-blue"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      editable="true"
+      (gridReady)="onGridReady($event)"
+      [rowSelection]="rowSelection"
+     (rowSelected)="onRowSelected($event)"
+     (cellValueChanged)="onCellValueChange($event)"
+     [rowMultiSelectWithClick]="true">
+  </ag-grid-angular>
+  </div><router-outlet></router-outlet>
+  
+  
