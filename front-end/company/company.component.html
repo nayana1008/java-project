@@ -1,1 +1,43 @@
-
+<div style="text-align:center">
+    <h1> COMPANY DETAILS</h1>
+  </div>
+  <div class="p">
+  <div>
+    <label>Company Id</label><br>
+    <input type="text" (focusout)=getId($event)/>
+  </div>
+  <div>
+    <label>Company Name</label><br>
+    <input type="text" (focusout)=getName($event)/>
+  </div>
+  <div>
+    <label>Company Code</label><br>
+    <input type="text" (focusout)=getCode($event)/>
+  </div>
+  <div>
+    <label>Company Address</label><br>
+    <input type="text" (focusout)=getAddress($event)/>
+  </div>
+  </div>
+  <div >
+  <button class="p" (click)="addCompany()">Add</button>
+  <button class="p" (click)="editCompany()">Edit</button>
+  <button class="p" (click)="deleteCompany()">Delete</button>
+  <button class="p" (click)="cancel()">Cancel</button>
+  
+  </div>
+  <div>
+  <ag-grid-angular
+      style="width: 800px; height: 155px; "
+      class="ag-theme-blue"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      editable="true"
+      (gridReady)="onGridReady($event)"
+      [rowSelection]="rowSelection"
+     (rowSelected)="onRowSelected($event)"
+     (cellValueChanged)="onCellValueChange($event)">
+  </ag-grid-angular>
+  </div><router-outlet></router-outlet>
+  
+  
