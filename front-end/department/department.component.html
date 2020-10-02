@@ -1,0 +1,47 @@
+<div style="text-align:center">
+    <h1> DEPARTMENT DETAILS</h1>
+  </div>
+  <div class="p">
+  <div>
+    <label>Department  Id</label><br>
+    <input type="text" (focusout)=getId($event)/>
+  </div>
+  <div>
+    <label>Department  Name</label><br>
+    <input type="text" (focusout)=getName($event)/>
+  </div>
+  <div>
+    <label>Department  Code</label><br>
+    <input type="text" (focusout)=getCode($event)/>
+  </div>
+  <div>
+    <label>Company</label><br>
+    <input type="text" (focusout)=getCompany($event)/>
+  </div>
+  </div>
+  
+  <div >
+  <button class="p" (click)="addDepartment()">Add</button>
+  <button class="p" (click)="editDepartment()">Edit</button>
+  <button class="p" (click)="deleteDepartment()">Delete</button>
+  <button class="p" (click)="cancel()">Export</button>
+  
+  </div>
+
+  <div>
+  <ag-grid-angular
+      style="width: 800px; height: 155px; "
+      class="ag-theme-blue"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      editable="true"
+      (gridReady)="onGridReady($event)"
+      [rowSelection]="rowSelection"
+     (rowSelected)="onRowSelected($event)"
+     (cellValueChanged)="onCellValueChange($event)"
+     [rowMultiSelectWithClick]="true">
+  </ag-grid-angular>
+  </div>
+  <router-outlet></router-outlet>
+  
+  
